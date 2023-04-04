@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Disabling the DNS server config
+export INTERNAL_IP4_DNS=
+. /usr/share/vpnc-scripts/vpnc-script

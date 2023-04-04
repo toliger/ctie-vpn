@@ -1,0 +1,23 @@
+#! /bin/bash
+
+token=$(p11tool --list-tokens | grep 'Token 1' -A 1 | grep URL | awk '{ print $2 }')
+
+if [ -z "$token" ]
+then
+  echo "Cannot find card reader"
+  exit 2
+fi
+
+echo Using token: $token
+
+cert=$(p11tool --list-all-certs $token | grep 'User Cert Auth' -B3 | grep URL | awk '{ print $2 }')
+
+if [ -z "$cert" ]
+then
+  echo "Cannot find certificate"
+  exit 3
+fi
+
+echo Using cert: $cert
+
+sudo openconnect -s usr/share/ctie-vpn/ctie-vpn-vpnc-script -c $cert vpn.etat.lu

@@ -1,0 +1,7 @@
+Package: ctie-vpn
+Version: 0.1.0
+Maintainer: Timothee Oliger <timothee.oliger@arhs-consulting.com>
+Depends: luxtrustmiddleware, libclassicclient, gnutls-bin, openconnect, sudo
+Architecture: amd64
+Homepage: http://example.com
+Description: CTIE VPN luxtrust client

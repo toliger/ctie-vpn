@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo ip route del default dev tun0
+sudo ip route add 185.106.24.0/22 dev tun0
+sudo ip route add 148.110.0.0/16 dev tun0
+sudo systemd-resolve --set-dns=148.110.130.18 --set-dns=148.110.130.19 --set-domain=etat.lu --set-domain gov.lu --interface=tun0
